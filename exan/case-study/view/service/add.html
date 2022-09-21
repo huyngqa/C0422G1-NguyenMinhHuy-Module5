@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Service</title>
+    <th:block th:replace="~{/layout::css}"></th:block>
+</head>
+<body>
+<div th:replace="~{/layout :: header}"></div>
+<div class="container-fluid">
+    <h3 class="text-black-">ADD NEW SERVICE</h3>
+    <form class="row g-3" action="/service/create" method="post" th:object="${facilityDTO}">
+        <div class="col-md-12">
+            <label for="name" class="form-label">Name Service</label>
+            <input type="text" class="form-control" id="name" th:field="*{name}">
+            <span class="text-danger" th:errors="*{name}"></span>
+        </div>
+        <div class="col-md-12">
+            <label for="area" class="form-label">Area</label>
+            <input type="text" class="form-control" id="area" th:field="*{area}">
+        </div>
+        <div class="col-md-12">
+            <label for="cost" class="form-label">Cost</label>
+            <input type="text" class="form-control" id="cost" th:field="*{cost}">
+            <span class="text-danger" th:errors="*{cost}"></span>
+        </div>
+        <div class="col-md-12">
+            <label for="max_people" class="form-label">Max people </label>
+            <input type="number" class="form-control" id="max_people" th:field="*{maxPeople}">
+            <span class="text-danger" th:errors="*{maxPeople}"></span>
+        </div>
+        <div class="col-md-12">
+            <label for="rent_type" class="form-label">Rent Type</label>
+            <select th:field="*{rentType}" id="rent_type" class="form-select">
+                <option th:each="rentType : ${rentTypeList}"
+                        th:value="${rentType.id}" th:text="${rentType.name}"></option>
+            </select>
+        </div>
+        <div class="col-md-12">
+            <label class="form-label">Service Type</label>
+            <select th:field="*{facilityType}" class="form-select" id="selectService">
+                <option th:each="facilityType : ${facilityTypeList}"
+                        th:value="${facilityType.id}" th:text="${facilityType.name}"></option>
+            </select>
+        </div>
+        <div class="col-md-12 " id="standard" style="display: block">
+            <label for="standard_room" class="form-label">Standard Room </label>
+            <input type="text" class="form-control" id="standard_room" th:field="*{standardRoom}">
+        </div>
+
+        <div class="col-md-12 " id="convenience" style="display: block">
+            <label for="description_other_convenience" class="form-label">Description other convenience</label>
+            <input type="text" class="form-control" id="description_other_convenience"
+                   th:field="*{descriptionOtherConvenience}">
+        </div>
+
+        <div class="col-md-12 " id="pool" style="display: block">
+            <label for="pool_area" class="form-label">Pool area </label>
+            <input type="text" class="form-control" id="pool_area" th:field="*{poolArea}">
+        </div>
+
+        <div class="col-md-12" id="floors" style="display: block">
+            <label for="number_of_floors" class="form-label">Number of floors </label>
+            <input type="number" class="form-control" id="number_of_floors" th:field="*{numOfFloors}">
+            <span class="text-danger" th:errors="*{numOfFloors}"></span>
+        </div>
+
+        <div class="col-md-12 " id="sv-free" style="display: none">
+            <label for="service_free" class="form-label">Service free </label>
+            <input type="text" class="form-control" id="service_free" th:field="*{facilityFree}">
+        </div>
+
+        <div class="col-12 ">
+            <button type="submit" class="btn btn-primary">Add New</button>
+        </div>
+    </form>
+</div>
+<div th:replace="~{/layout :: footer}"></div>
+<script>
+    $("#selectService").change(function (){
+        let value = $("#selectService").val();
+        switch (value) {
+            case "1" :
+                $("#standard").show();
+                $("#convenience").show();
+                $("#pool").show();
+                $("#floors").show();
+                $("#sv-free").hide();
+                $("#service_free").val(null);
+                break;
+            case "2" :
+                $("#standard").show();
+                $("#convenience").show();
+                $("#pool").hide();
+                $("#pool_area").val(null);
+                $("#floors").show();
+                $("#sv-free").hide();
+                $("#service_free").val(null);
+                break;
+            case "3" :
+                $("#standard").hide();
+                $("#standard_room").val(null);
+                $("#convenience").hide();
+                $("#description_other_convenience").val(null);
+                $("#pool").hide();
+                $("#pool_area").val(null);
+                $("#floors").hide();
+                $("#number_of_floors").val(null);
+                $("#sv-free").show();
+                break;
+        }
+    });
+</script>
+</body>
+</html>

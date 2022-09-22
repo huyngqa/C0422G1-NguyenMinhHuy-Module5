@@ -1,0 +1,11 @@
+<p [style.color]="color">Hello World!!!</p>
+<!--<select [(ngModel)]="color">-->
+<select (change)="changeCole($event.target)">
+  <option value="">Chọn màu</option>
+  <option value="red">Red</option>
+  <option value="black">Black</option>
+  <option value="yellow">Yellow</option>
+  <option value="brown">Brown</option>
+  <option value="aqua">Aqua</option>
+  <option value="purple">purple</option>
+</select>

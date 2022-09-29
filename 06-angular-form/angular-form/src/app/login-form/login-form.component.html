@@ -1,0 +1,29 @@
+<form [formGroup]="loginReactiveForm" (ngSubmit)="login()">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" formControlName="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    <p class="text-danger"
+       *ngIf="loginReactiveForm.controls.email.hasError('pattern') && checkSubmit">
+      Email không đúng định dạng
+    </p>
+    <p class="text-danger"
+       *ngIf="loginReactiveForm.controls.email.hasError('required') && checkSubmit">
+      Email bắt buộc nhập
+    </p>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" formControlName="password" name="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <p class="text-danger"
+     *ngIf="loginReactiveForm.controls.password.hasError('required') && checkSubmit">
+    Vui lòng nhập password
+  </p>
+  <p class="text-danger"
+     *ngIf="loginReactiveForm.controls.password.hasError('minlength') && checkSubmit">
+    Password có ít nhất 6 kí tự
+  </p>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<p class="text-success">{{result}}</p>

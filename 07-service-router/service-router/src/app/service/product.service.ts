@@ -51,6 +51,7 @@ export class ProductService {
     for (let i = 0; i < this.products.length; i++) {
       if (this.products[i].id === product.id) {
         this.products[i] = product;
+        break;
       }
     }
   }
@@ -59,6 +60,7 @@ export class ProductService {
     for (let i = 0; i < this.products.length; i++) {
       if (this.products[i].id === id) {
         this.products.splice(i, 1);
+        break;
       }
     }
   }

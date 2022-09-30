@@ -1,0 +1,10 @@
+<table>
+  <tr *ngFor="let world of worlds">
+    <td>
+      {{world.world}}
+    </td>
+    <td>
+      <a [routerLink]="['', world.world]">Dịch</a>
+    </td>
+  </tr>
+</table>

@@ -26,7 +26,7 @@ export class ProductUpdateComponent implements OnInit {
           name: new FormControl(productTemp.name),
           price: new FormControl(productTemp.price),
           description: new FormControl(productTemp.description),
-          category: new FormControl(),
+          category: new FormControl(productTemp.category.id),
         });
       });
     });

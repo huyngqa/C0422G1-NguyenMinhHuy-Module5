@@ -39,6 +39,16 @@
         "name": "Loại 2"
       },
       "id": 4
+    },
+    {
+      "name": "1",
+      "price": 1,
+      "description": "1",
+      "category": {
+        "id": 1,
+        "name": "Loại 1"
+      },
+      "id": 5
     }
   ],
   "categories": [

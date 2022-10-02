@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
+import {User} from '../user';
 
 @Component({
   selector: 'app-login-form',
@@ -10,10 +11,17 @@ export class LoginFormComponent implements OnInit {
   loginReactiveForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.pattern('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$')]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)])
-  });
-
+  }, [this.checkUser]);
+  users: User[] = [{
+    email: 'huynguqa@gmail.com',
+    password: 'huy123456'
+  },
+    {
+      email: 'huynguyendn321@gmail.com',
+      password: 'huy321321'
+    }];
   result = '';
-  checkSubmit: boolean = false;
+  checkSubmit = false;
 
   constructor() {
   }
@@ -27,5 +35,21 @@ export class LoginFormComponent implements OnInit {
     if (this.loginReactiveForm.status === 'VALID') {
       this.result = 'Login thành công';
     }
+  }
+
+  checkValid(email: string, password: string) {
+    for (let user of this.users) {
+      if (user.email === email && user.password === password) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  async checkUser(loginReactiveForm: AbstractControl) {
+    if (await this.checkValid(loginReactiveForm.value.email, loginReactiveForm.value.password)) {
+      return null;
+    }
+    return {userInvalid: true};
   }
 }

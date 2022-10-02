@@ -1,105 +1,224 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<html lang="vi">
 <head>
-    <title>Furama</title>
-    <th:block th:fragment="css">
-        <link rel="stylesheet" href="/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../../resources/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    </th:block>
+    <title></title>
+
 </head>
 <body>
-<div th:fragment="header">
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <div class="col-auto col-sm-5 col-lg-3 d-flex align-items-center bestel-logo">
-                <a class="navbar-brand header-logo" href="/furama">
-                    <img src="/img/logo.png" alt="logo" class="d-inline-block align-text-top img-fluid">
-                </a>
-            </div>
-            <div class="col col-md-auto col-lg-3 d-flex">
-
-            </div>
-            <div class="col-sm-3 d-none d-lg-block">
-                <div class="header-contact d-flex">
-                    <div class="header-contact-icon"></div>
-                    <div class="header-contact-txt .fs-5 text">
-                        <p>
-                            <i class="fa-solid fa-location-dot"></i>
-                            1291 Đường Nguyễn Tất Thành, Phường Thanh Khê Đông, Quận Thanh Khê,
-                            Tp. Đà Nẵng, Việt Nam </p>
-                        <p class="txt-sm">
-                            <span>3.0 km</span> từ Sân bay Quốc tế Đà Nẵng </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3 d-none d-lg-block">
-                <div class="header-contact d-flex">
-                    <div class="header-contact-icon"><i class="icon-telephone"></i></div>
-                    <div class="header-contact-txt">
-                        <p class="txt-lg">
-                            <i class="fa-solid fa-phone-arrow-down-left"></i> 0935507495</p>
-                    </div>
-                </div>
-                <div class="header-contact d-flex">
-                    <div class="header-contact-icon"><i class="icon-closed-envelope"></i></div>
-                    <div class="header-contact-txt">
-                        <a href="mailto:huynguqa@gmail.com">
-                            <i class="fa-solid fa-circle-envelope"></i> huy đẹp trai </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-success sticky-top w-100 m-0">
-        <div class="container-fluid">
-            <a class="navbar-brand text-light" href="/furama">Home</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active text-light" aria-current="page"
-                           href="view/employee/list.jsp">Employee</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="/customer">Customer</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="/service">Service</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="/contract">Contract</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
 </div>
-<div th:fragment="footer" class="container-fluid">
-    <div class="row">
-        <div class="col-md-12 col-sm-12">
-            <div class="card ">
-                <div class="card-header bg-success text-light">
-                    Furama Resort
+
+<!-- Offcanvas Menu Begin -->
+<div class="offcanvas-menu-overlay"></div>
+<div class="offcanvas-menu-wrapper">
+    <div class="offcanvas__logo">
+        <a href="./index.html"><img src="../resources/img/logo.png" alt=""></a>
+    </div>
+    <div id="mobile-menu-wrap"></div>
+    <div class="offcanvas__btn__widget">
+        <a href="#">Book Now <span class="arrow_right"></span></a>
+    </div>
+    <div class="offcanvas__widget">
+        <ul>
+            <li><span class="icon_pin_alt"></span> 1291 Nguyen Tat Thanh Street, Thanh Khe District, Da Nang City, Viet Nam</li>
+            <li><span class="icon_phone"></span> (+84) 0935 507 495</li>
+        </ul>
+    </div>
+    <div class="offcanvas__language">
+        <img src="../resources/img/lan.png" alt="">
+        <span>English</span>
+        <ul>
+            <li>English</li>
+            <li>Bangla</li>
+        </ul>
+    </div>
+    <div class="offcanvas__auth">
+        <ul>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Register</a></li>
+        </ul>
+    </div>
+</div>
+<!-- Offcanvas Menu End -->
+
+<!--     Header Section Begin-->
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <ul class="header__top__widget">
+                        <li><span class="icon_pin_alt"></span> 1291 Nguyen Tat Thanh, Da Nang, Viet Nam</li>
+                        <li><span class="icon_phone"></span> (+84) 0935 507 495</li>
+                    </ul>
                 </div>
-                <div class="card-body bg-light" id="color-foot">
-                    <h5 class="card-title">Thank you so much!</h5>
-                    <p class="card-text">Hẹn quý khách vào những ngày tới.</p>
-                    <a href="/furama" class="btn btn-primary">Go home</a>
+                <div class="col-lg-5">
+                    <div class="header__top__right">
+                        <div class="header__top__auth">
+                            <ul>
+                                <li><a href="#">Login</a></li>
+                                <li><a href="#">Register</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="https://kit.fontawesome.com/d6e19ea644.js" crossorigin="anonymous"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/jquery-3.6.0.min.js"></script>
-</div>
+    <div class="header__nav__option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <div class="header__nav">
+                        <nav class="header__menu">
+                            <ul class="menu__class">
+                                <li class="active"><a href="./index.html">Home</a></li>
+                                <li><a href="service/rooms.html">Rooms</a></li>
+                                <li><a href="./about.html">About Us</a></li>
+                                <li><a href="#">Pages</a>
+                                    <ul class="dropdown">
+                                        <li><a href="./about.html">About Us</a></li>
+                                        <li><a href="service/room-details.html">Room Details</a></li>
+                                        <li><a href="./blog-details.html">Blog Details</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="./blog.html">News</a></li>
+                                <li><a href="contract/contact.html">Contact</a></li>
+                            </ul>
+                        </nav>
+                        <div class="header__nav__widget">
+                            <a href="#">Book Now <span class="arrow_right"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open">
+                <span class="fa fa-bars"></span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Footer Section Begin -->
+<footer class="footer set-bg" data-setbg="../resources/img/footer-bg.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="logo__carousel owl-carousel">
+                    <div class="logo__carousel__item">
+                        <a href="#"><img src="../resources/img/logo/logo-1.png" alt=""></a>
+                    </div>
+                    <div class="logo__carousel__item">
+                        <a href="#"><img src="../resources/img/logo/logo-2.png" alt=""></a>
+                    </div>
+                    <div class="logo__carousel__item">
+                        <a href="#"><img src="../resources/img/logo/logo-3.png" alt=""></a>
+                    </div>
+                    <div class="logo__carousel__item">
+                        <a href="#"><img src="../resources/img/logo/logo-4.png" alt=""></a>
+                    </div>
+                    <div class="logo__carousel__item">
+                        <a href="#"><img src="../resources/img/logo/logo-5.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="footer__content">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <a href="#"><img src="../resources/img/logo.png" alt=""></a>
+                        </div>
+                        <h4>(+84) 0935 507 49596</h4>
+                        <ul>
+                            <li>1291 Nguyen Tat Thanh, Da Nang, Viet Nam</li>
+                            <li>huynguqa@gmail.com</li>
+                        </ul>
+                        <div class="footer__social">
+                            <a href="https://www.facebook.com/huynguqua"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-youtube-play"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 offset-lg-1 col-md-5 offset-md-1 col-sm-6">
+                    <div class="footer__widget">
+                        <h4>Quick Link</h4>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Booking</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Review</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">Our Room</a></li>
+                            <li><a href="#">Restaurants</a></li>
+                            <li><a href="#">Payments</a></li>
+                            <li><a href="#">Events</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-8 col-sm-12">
+                    <div class="footer__newslatter">
+                        <h4>Subscribe our newlatester</h4>
+                        <form action="#">
+                            <input type="text" placeholder="Your E-mail Address">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                        <div class="footer__newslatter__find">
+                            <h5>Find Us:</h5>
+                            <div class="footer__newslatter__find__links">
+                                <a href="#"><i class="fa fa-tripadvisor"></i></a>
+                                <a href="#"><i class="fa fa-map-o"></i></a>
+                                <a href="#"><i class="fa fa-dribbble"></i></a>
+                                <a href="#"><i class="fa fa-forumbee"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__copyright">
+            <div class="row">
+                <div class="col-lg-7 col-md-7">
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    <div class="footer__copyright__text">
+                        <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                    </div>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </div>
+                <div class="col-lg-5 col-md-5">
+                    <ul class="footer__copyright__links">
+                        <li><a href="#">Terms Of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Section End -->
+
+<!-- Js Plugins -->
+<script src="../resources/js/jquery-3.3.1.min.js"></script>
+<script src="../resources/js/bootstrap.min.js"></script>
+<script src="../resources/js/jquery.nice-select.min.js"></script>
+<script src="../resources/js/jquery-ui.min.js"></script>
+<script src="../resources/js/jquery.slicknav.js"></script>
+<script src="../resources/js/owl.carousel.min.js"></script>
+<script src="../resources/js/main.js"></script>
 </body>
 </html>

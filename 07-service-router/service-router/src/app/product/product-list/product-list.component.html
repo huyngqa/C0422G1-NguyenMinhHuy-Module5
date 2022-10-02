@@ -5,13 +5,16 @@
     <td>Tên</td>
     <td>Giá</td>
     <td>Mô tả</td>
+    <td>Thể loại</td>
   </tr>
   <tr *ngFor="let product of products; index as i">
     <td>{{i + 1}}</td>
     <td>{{product.name}}</td>
     <td>{{product.price}}</td>
     <td>{{product.description}}</td>
+    <td>{{product.category.name}}</td>
     <td><a [routerLink]="['/product/edit', product.id]">Chỉnh sửa</a></td>
-    <td><a [routerLink]="['/product/delete', product.id]">Xoá</a></td>
+    <td><button (click)="deleteProduct(product.id)">Xoá</button></td>
   </tr>
 </table>
+<a routerLink="/product/create">Thêm mới sản phẩm</a>

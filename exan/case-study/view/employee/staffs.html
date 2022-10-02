@@ -1,348 +1,162 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<html lang="zxx">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-<!--    <th:block th:replace></th:block>-->
-    <link rel="stylesheet" href="../../resources/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../resources/css/list-style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="description" content="Hiroto Template">
+    <meta name="keywords" content="Hiroto, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hiroto | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="../../resources/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../../resources/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="../../resources/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="../../resources/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="../../resources/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="../../resources/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="../../resources/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="../../resources/css/style.css" type="text/css">
 </head>
+
 <body>
-<!--<div th:replace="~{/layout :: header}"></div>-->
-<div class="table-title w-100 m-0">
-    <div class="row">
-        <div class="col-sm-6">
-            <h2>Manage <b>Employees</b></h2>
-        </div>
-        <div class="col-sm-6">
-            <button type="button" class="btn btn-primary bg-success" data-bs-toggle="modal" data-bs-target="#addEmployeeModal">
-                <i class="material-icons">&#xE147;</i>
-                <span>Add New Employee</span>
-            </button>
-        </div>
-    </div>
-</div>
-<div class="table-responsive p-0 m-0 w-100">
-    <table class="table">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Date of birth</th>
-            <th>ID Card</th>
-            <th>Salary</th>
-            <th>Phone number</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>Position</th>
-            <th>Education Degree</th>
-            <th>Division</th>
-            <th>User Name</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>NV001</td>
-            <td>Thomas Hardy</td>
-            <td>20-02-1999</td>
-            <td>0394827123</td>
-            <td>10000000</td>
-            <td>09374852133</td>
-            <td>thomashardy@mail.com</td>
-            <td>Nguyen Tat Thanh Street</td>
-            <td>Lễ tân</td>
-            <td>Cao đẳng</td>
-            <td>Villa</td>
-            <td>thomas123</td>
-            <td>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editEmployeeModal">
-                    <i class="material-icons"
-                       data-toggle="tooltip" title="Edit">&#xE254;</i>
-                </button>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteEmployeeModal">
-                    <i class="material-icons"
-                       data-toggle="tooltip"
-                       title="Delete">&#xE872;</i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>NV002</td>
-            <td>Dominique Perrier</td>
-            <td>12-12-2001</td>
-            <td>02947261242</td>
-            <td>10000000</td>
-            <td>09846213452</td>
-            <td>dominiqueperrier@mail.com</td>
-            <td>Nguyen Tat Thanh Street</td>
-            <td>Phục vụ</td>
-            <td>Cao đẳng</td>
-            <td>Villa</td>
-            <td>perrier123</td>
-            <td>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editEmployeeModal">
-                    <i class="material-icons"
-                       data-toggle="tooltip" title="Edit">&#xE254;</i>
-                </button>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteEmployeeModal">
-                    <i class="material-icons"
-                       data-toggle="tooltip"
-                       title="Delete">&#xE872;</i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>NV003</td>
-            <td>Nguyễn Minh Huy</td>
-            <td>20-12-2000</td>
-            <td>201796508</td>
-            <td>10000000000</td>
-            <td>0935507495</td>
-            <td>huynguqa@mail.com</td>
-            <td>Nguyen Tat Thanh Street</td>
-            <td>Giám đốc</td>
-            <td>Tiến sĩ</td>
-            <td>Villa</td>
-            <td>huydeptrai123</td>
-            <td>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editEmployeeModal">
-                    <i class="material-icons"
-                       data-toggle="tooltip" title="Edit">&#xE254;</i>
-                </button>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteEmployeeModal">
-                    <i class="material-icons"
-                       data-toggle="tooltip"
-                       title="Delete">&#xE872;</i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>NV004</td>
-            <td>Nguyễn Văn Mạnh</td>
-            <td>20-12-2000</td>
-            <td>201796508</td>
-            <td>10000000000</td>
-            <td>0935507495</td>
-            <td>huynguqa@mail.com</td>
-            <td>Nguyen Tat Thanh Street</td>
-            <td>Giám đốc</td>
-            <td>Tiến sĩ</td>
-            <td>Villa</td>
-            <td>huydeptrai123</td>
-            <td>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editEmployeeModal">
-                    <i class="material-icons"
-                       data-toggle="tooltip" title="Edit">&#xE254;</i>
-                </button>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteEmployeeModal">
-                    <i class="material-icons"
-                       data-toggle="tooltip"
-                       title="Delete">&#xE872;</i>
-                </button>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-<%--modal thêm mới--%>
-<div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addModalLabel">Add new employee</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="d-flex justify-content-center mt-5">
-                    <form class="w-50">
-                        <div class="mb-3">
-                            <label for="inputName" class="form-label">Email address</label>
-                            <input type="text" class="form-control" id="inputName">
-                        </div>
-                        <div class="mb-3">
-                            <label for="inputBirthDay" class="form-label">Birth Day</label>
-                            <input type="date" class="form-control" id="inputBirthDay">
-                        </div>
-                        <div class="mb-3">
-                            <label for="inputIdCard" class="form-label">ID Card</label>
-                            <input type="text" class="form-control" id="inputIdCard">
-                        </div>
-                        <div class="mb-3">
-                            <label for="inputSalary" class="form-label">Salary</label>
-                            <input type="text" class="form-control" id="inputSalary">
-                        </div>
-                        <div class="mb-3">
-                            <label for="inputPhone" class="form-label">Phone Number</label>
-                            <input type="text" class="form-control" id="inputPhone">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="inputAddress" class="form-label">Address</label>
-                            <input type="text" class="form-control" id="inputAddress">
-                        </div>
-                        <div class="mb-3">
-                            <label for="inputPosition" class="form-label">Position</label>
-                            <div class="mb-3">
-                                <select class="form-select" id="inputPosition" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">Lễ tân</option>
-                                    <option value="2">Giám đốc</option>
-                                    <option value="3">Sales</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="inputEducation" class="form-label">Education Degree</label>
-                            <div class="mb-3">
-                                <select class="form-select" id="inputEducation" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">Đại học</option>
-                                    <option value="2">Cao đẳng</option>
-                                    <option value="3">Trung cấp</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="inputDivision" class="form-label">Division</label>
-                            <div class="mb-3">
-                                <select class="form-select" id="inputDivision" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">Villa</option>
-                                    <option value="2">House</option>
-                                    <option value="3">Room</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="inputUser" class="form-label">User Name</label>
-                            <input type="text" class="form-control" id="inputUser">
-                        </div>
-                    </form>
+<!-- Breadcrumb Begin -->
+<div class="breadcrumb-option hero spad set-bg img-fluid" data-setbg="../../resources/img/bg-jennie.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h1>Our staffs team</h1>
+                    <div class="breadcrumb__links">
+                        <a href="../index.html">Home</a>
+                        <span>Staffs</span>
+                    </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
         </div>
     </div>
 </div>
-<%--Modal edit employee--%>
-<div class="modal fade" id="editEmployeeModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Edit Employee</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="d-flex justify-content-center mt-5">
-                    <form class="w-50">
-                        <div class="mb-3">
-                            <label for="editName" class="form-label">Email address</label>
-                            <input type="text" class="form-control" id="editName">
-                        </div>
-                        <div class="mb-3">
-                            <label for="editBirthDay" class="form-label">Birth Day</label>
-                            <input type="date" class="form-control" id="editBirthDay">
-                        </div>
-                        <div class="mb-3">
-                            <label for="editIdCard" class="form-label">ID Card</label>
-                            <input type="text" class="form-control" id="editIdCard">
-                        </div>
-                        <div class="mb-3">
-                            <label for="editSalary" class="form-label">Salary</label>
-                            <input type="text" class="form-control" id="editSalary">
-                        </div>
-                        <div class="mb-3">
-                            <label for="editPhone" class="form-label">Phone Number</label>
-                            <input type="text" class="form-control" id="editPhone">
-                        </div>
-                        <div class="mb-3">
-                            <label for="editEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="editEmail1" aria-describedby="editEmailHelp">
-                            <div id="editEmailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="editAddress" class="form-label">Address</label>
-                            <input type="text" class="form-control" id="editAddress">
-                        </div>
-                        <div class="mb-3">
-                            <label for="editPosition" class="form-label">Position</label>
-                            <div class="mb-3">
-                                <select class="form-select" id="editPosition" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">Lễ tân</option>
-                                    <option value="2">Giám đốc</option>
-                                    <option value="3">Sales</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="editEducation" class="form-label">Education Degree</label>
-                            <div class="mb-3">
-                                <select class="form-select" id="editEducation" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">Đại học</option>
-                                    <option value="2">Cao đẳng</option>
-                                    <option value="3">Trung cấp</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="editDivision" class="form-label">Division</label>
-                            <div class="mb-3">
-                                <select class="form-select" id="editDivision" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">Villa</option>
-                                    <option value="2">House</option>
-                                    <option value="3">Room</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="editUser" class="form-label">User Name</label>
-                            <input type="text" class="form-control" id="editUser">
-                        </div>
-                    </form>
+<!-- Breadcrumb End -->
+
+<!-- Rooms Section Begin -->
+<section class="rooms spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 p-0 order-lg-2 order-md-2 col-md-6">
+                <div class="room__pic__slider owl-carousel">
+                    <div class="room__pic__item set-bg" data-setbg="../../resources/img/staff/ceo-1.png"></div>
+                    <div class="room__pic__item set-bg" data-setbg="../../resources/img/staff/ceo-2.jpg"></div>
+                    <div class="room__pic__item set-bg" data-setbg="../../resources/img/staff/ceo-3.jpg"></div>
+                    <div class="room__pic__item set-bg" data-setbg="../../resources/img/staff/ceo-4.jpg"></div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+            <div class="col-lg-6 p-0 order-lg-1 order-md-1 col-md-6">
+                <div class="room__text">
+                    <h2>Founder & CEO</h2>
+                    <h3>Nguyễn Minh Huy</h3>
+                    <ul>
+                        <li><span>Age:</span>23</li>
+                        <li><span>Phone number:</span>0935507495</li>
+                        <li><span>Email:</span>huyngqa@gmail.com</li>
+                        <li><span>Education:</span>University</li>
+                        <li><span>Address:</span>Thanh Khê, Đà Nẵng</li>
+                    </ul>
+                    <a href="#">View Details</a>
+                </div>
+            </div>
+            <div class="col-lg-6 p-0 order-lg-3 order-md-3 col-md-6">
+                <div class="room__pic__slider owl-carousel">
+                    <div class="room__pic__item set-bg" data-setbg="../../resources/img/staff/director-1.png"></div>
+                    <div class="room__pic__item set-bg" data-setbg="../../resources/img/staff/director-2.jpg"></div>
+                    <div class="room__pic__item set-bg" data-setbg="../../resources/img/staff/director-3.jpg"></div>
+<!--                    <div class="room__pic__item set-bg" data-setbg="../../resources/img/staff/director-4.jpg"></div>-->
+                </div>
+            </div>
+            <div class="col-lg-6 p-0 order-lg-4 order-md-4 col-md-6">
+                <div class="room__text right__text">
+                    <h2>Director</h2>
+                    <h3>Nguyễn Bá Trọng Nhân</h3>
+                    <ul>
+                        <li><span>Age:</span>28</li>
+                        <li><span>Phone number:</span>0905281742</li>
+                        <li><span>Email:</span>nhan2k5@gmail.com</li>
+                        <li><span>Education:</span>University</li>
+                        <li><span>Address:</span>Lý Thái Tổ, Đà Nẵng</li>
+                    </ul>
+                    <a href="#">View Details</a>
+                </div>
+            </div>
+            <div class="col-lg-6 p-0 order-lg-6 order-md-6 col-md-6">
+                <div class="room__pic__slider owl-carousel">
+                    <div class="room__pic__item set-bg" data-setbg="../../resources/img/staff/manager-1.png"></div>
+                    <div class="room__pic__item set-bg" data-setbg="../../resources/img/staff/manager-2.jpg"></div>
+                    <div class="room__pic__item set-bg" data-setbg="../../resources/img/staff/manager-3.jpg"></div>
+                    <div class="room__pic__item set-bg" data-setbg="../../resources/img/staff/manager-4.jpg"></div>
+                </div>
+            </div>
+            <div class="col-lg-6 p-0 order-lg-5 order-md-5 col-md-6">
+                <div class="room__text">
+                    <h2>Manager</h2>
+                    <h3>Nguyễn Phi Hùng</h3>
+                    <ul>
+                        <li><span>Age:</span>20</li>
+                        <li><span>Phone number:</span>0935327682</li>
+                        <li><span>Email:</span>hung_bao_doi@gmail.com</li>
+                        <li><span>Education:</span>University</li>
+                        <li><span>Address:</span>Sơn Trà, Đà Nẵng</li>
+                    </ul>
+                    <a href="#">View Details</a>
+                </div>
+            </div>
+            <div class="col-lg-6 p-0 order-lg-7 order-md-7 col-md-6">
+                <div class="room__pic__slider owl-carousel">
+                    <div class="room__pic__item set-bg" data-setbg="../../resources/img/staff/security-1.png"></div>
+                    <div class="room__pic__item set-bg" data-setbg="../../resources/img/staff/security-2.png"></div>
+                    <div class="room__pic__item set-bg" data-setbg="../../resources/img/staff/security-3.jpg"></div>
+                    <div class="room__pic__item set-bg" data-setbg="../../resources/img/staff/security-4.jpg"></div>
+                </div>
+            </div>
+            <div class="col-lg-6 p-0 order-lg-8 order-md-8 col-md-6">
+                <div class="room__text right__text">
+                    <h2>Security</h2>
+                    <h3>Phạm Đình Trung</h3>
+                    <ul>
+                        <li><span>Age:</span>26</li>
+                        <li><span>Phone number:</span>0706293821</li>
+                        <li><span>Email:</span>trung_africa@gmail.com</li>
+                        <li><span>Education:</span>University</li>
+                        <li><span>Address:</span>Liên Chiểu, Đà Nẵng</li>
+                    </ul>
+                    <a href="#">View Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="pagination__number">
+                    <a href="#">1</a>
+                    <a href="#">2</a>
+                    <a href="#">Next <span class="arrow_right"></span></a>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<%--Modal delete employee--%>
-<div class="modal fade" id="deleteEmployeeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!--<div th:replace="~{/layout :: footer}"></div>-->
+</section>
+<!-- Rooms Section End -->
+
+<!-- Js Plugins -->
+<script src="../../resources/js/jquery-3.3.1.min.js"></script>
 <script src="../../resources/js/bootstrap.min.js"></script>
-<script src="../../resources/js/jquery-3.6.0.min.js"></script>
-<script src="https://kit.fontawesome.com/d6e19ea644.js" crossorigin="anonymous"></script>
+<script src="../../resources/js/jquery.nice-select.min.js"></script>
+<script src="../../resources/js/jquery-ui.min.js"></script>
+<script src="../../resources/js/jquery.slicknav.js"></script>
+<script src="../../resources/js/owl.carousel.min.js"></script>
+<script src="../../resources/js/main.js"></script>
 </body>
 </html>

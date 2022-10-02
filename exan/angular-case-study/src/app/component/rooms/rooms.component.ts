@@ -1,5 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Facility} from '../../model/facility';
+import {FacilityService} from '../../service/facility.service';
+import {$} from 'protractor';
 
 @Component({
   selector: 'app-rooms',
@@ -7,47 +9,32 @@ import {Facility} from '../../model/facility';
   styleUrls: ['./rooms.component.css']
 })
 export class RoomsComponent implements OnInit {
-  facilities: Facility[] = [
-    {
-      facilityId: 1,
-      facilityName: 'Villa1',
-      area: 3.5,
-      numOfFloor: 4,
-      maxOfPeople: 10,
-      costs: 500000,
-      status: 'a'
-    },
-    {
-      facilityId: 2,
-      facilityName: 'Villa2',
-      area: 4,
-      numOfFloor: 6,
-      maxOfPeople: 20,
-      costs: 1000000,
-      status: 'a'
-    },
-    {
-      facilityId: 3,
-      facilityName: 'House1',
-      area: 2,
-      numOfFloor: 4,
-      maxOfPeople: 6,
-      costs: 500000,
-      status: 'a'
-    },
-    {
-      facilityId: 4,
-      facilityName: 'Room1',
-      area: 2,
-      numOfFloor: 3,
-      maxOfPeople: 7,
-      costs: 700000,
-      status: 'a'
-    }];
-
-  constructor() {
+  facilities: Facility[] = [];
+  constructor(private facilityService: FacilityService) {
+    this.loadScript('/assets/js/custom-carousel.js');
   }
 
   ngOnInit(): void {
+    this.facilities = this.facilityService.getAll();
+  }
+  // // @ts-ignore
+  // // tslint:disable-next-line:only-arrow-functions
+  // $(document).ready(function() {
+  //   $('.room_carousel .owl-carousel').owlCarousel({
+  //     loop: true,
+  //     margin: 10,
+  //     nav: true,
+  //     navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+  //     autoplay: true,
+  //     autoplayTimeout: 3000,
+  //     autoplayHoverPause: true,
+  //     items: 1,
+  //   });
+  // });
+  loadScript(src) {
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    document.getElementsByTagName('body')[0].appendChild(script);
+    script.src = src;
   }
 }

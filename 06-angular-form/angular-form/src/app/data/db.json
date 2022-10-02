@@ -1,0 +1,34 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "content": "study",
+      "complete": true
+    },
+    {
+      "id": 2,
+      "content": "exercise",
+      "complete": true
+    },
+    {
+      "id": 3,
+      "content": "study",
+      "complete": true
+    },
+    {
+      "content": "rtrtrt",
+      "complete": true,
+      "id": 5
+    },
+    {
+      "content": "fdsf",
+      "complete": true,
+      "id": 6
+    },
+    {
+      "content": "fdfsd",
+      "complete": true,
+      "id": 7
+    }
+  ]
+}

@@ -24,6 +24,10 @@
      *ngIf="loginReactiveForm.controls.password.hasError('minlength') && checkSubmit">
     Password có ít nhất 6 kí tự
   </p>
+  <p class="text-danger"
+     *ngIf="loginReactiveForm.hasError('userInvalid') && checkSubmit">
+    Email hoặc password sai
+  </p>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 <p class="text-success">{{result}}</p>

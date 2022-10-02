@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Product} from '../../model/product';
 import {ProductService} from '../../service/product.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
+import {Category} from '../../model/category';
+import {CategoryService} from '../../service/category.service';
 
 @Component({
   selector: 'app-product-update',
@@ -10,29 +12,49 @@ import {FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./product-update.component.css']
 })
 export class ProductUpdateComponent implements OnInit {
+  categories: Category[] = [];
   product: Product = {};
   productForm: FormGroup = new FormGroup({});
-  constructor(private productService: ProductService, private activeRoute: ActivatedRoute) {
+  id: number;
+
+  constructor(private productService: ProductService, private categoryService: CategoryService,
+              private router: Router, private activeRoute: ActivatedRoute) {
     activeRoute.paramMap.subscribe((paramMap: ParamMap) => {
-      const id = paramMap.get('id');
-      // tslint:disable-next-line:radix
-      this.product = this.productService.getProductById(parseInt(id));
+      this.id = +paramMap.get('id');
+      // @ts-ignore
+      this.product = this.productService.getProductById(this.id);
+      console.log(this.product);
+      this.productForm = new FormGroup({
+        id: new FormControl(this.product.id),
+        name: new FormControl(this.product.name),
+        price: new FormControl(this.product.price),
+        description: new FormControl(this.product.description),
+        category: new FormControl(),
+      });
     });
-    this.productForm = new FormGroup({
-      id: new FormControl(this.product.id),
-      name: new FormControl(this.product.name),
-      price: new FormControl(this.product.price),
-      description: new FormControl(this.product.description),
-    });
+
   }
 
   ngOnInit(): void {
+    this.getAllCategories();
+  }
+
+  getAllCategories() {
+    this.categoryService.getAll().subscribe(categories => {
+      this.categories = categories;
+    });
   }
 
   submit() {
-    const product = this.productForm.value;
-    if (this.productForm.valid) {
-      this.productService.updateProduct(product);
-    }
+    let category: Category;
+    let product: Product = this.productForm.value;
+    this.categoryService.findById(this.productForm.value.category).subscribe(categoryTemp => {
+      category = categoryTemp;
+      product.category = category;
+    });
+    this.productService.updateProduct(product.id, product).subscribe(product => {
+      this.router.navigateByUrl('');
+      alert('cập nhật thành công');
+    });
   }
 }

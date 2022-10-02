@@ -348,7 +348,7 @@ ol {
 }
 
 .header__nav__option {
-	background: #1a1a1a;
+	background: #5f6362;
 }
 
 .header__nav {
@@ -479,8 +479,8 @@ ol {
 	margin: 0 auto 65px;
 }
 
-.hero__text h5 {
-	color: #E9AD28;
+.hero__text h4 {
+	color: #260f11;
 	text-transform: uppercase;
 	letter-spacing: 4px;
 	margin-bottom: 35px;
@@ -488,12 +488,12 @@ ol {
 
 .hero__text h2 {
 	font-size: 72px;
-	color: #ffffff;
+	color: #1a1a1a;
 	line-height: 82px;
 }
 
 .filter__form {
-	background: #ffffff;
+	background: #5f6362;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -505,7 +505,7 @@ ol {
 	font-size: 18px;
 	font-weight: 500;
 	color: #ffffff;
-	background: #1d1c1c;
+	background: #4c3e3c;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	border: none;

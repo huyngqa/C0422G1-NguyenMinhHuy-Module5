@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Todo} from '../todo';
-
-// tslint:disable-next-line:variable-name
-let _id = 1;
+import {TodoService} from '../service/todo.service';
 
 @Component({
   selector: 'app-todo',
@@ -14,25 +12,47 @@ export class TodoComponent implements OnInit {
   todos: Todo[] = [];
   content = new FormControl();
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private todoService: TodoService) {
   }
 
-  toggleTodo(i: number) {
-    this.todos[i].complete = !this.todos[i].complete;
+  ngOnInit(): void {
+    this.getAll();
+  }
+
+  getAll() {
+    this.todoService.getAll().subscribe(next => {
+      this.todos = next;
+    });
+  }
+
+  toggleTodo(id: number) {
+    let todo: Todo = {};
+    this.todoService.getTodoById(id).subscribe(next => {
+      todo = next;
+      todo.complete = true;
+      this.todoService.toggleTodo(id, todo).subscribe(next => {
+        this.getAll();
+      });
+    });
   }
 
   change() {
     const value = this.content.value;
     if (value) {
       const todo: Todo = {
-        id: _id++,
         content: value,
         complete: false
       };
-      this.todos.push(todo);
+      this.todoService.addTodo(todo).subscribe(next => {
+        this.getAll();
+      });
       this.content.reset();
     }
+  }
+
+  deleteTodo(id: number) {
+    this.todoService.deleteTodo(id).subscribe(todo => {
+      this.getAll();
+    })
   }
 }

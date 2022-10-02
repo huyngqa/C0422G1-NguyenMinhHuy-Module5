@@ -12,7 +12,9 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { DictionaryPageComponent } from './dictionary/dictionary-page/dictionary-page.component';
 import { DictionaryDetailComponent } from './dictionary/dictionary-detail/dictionary-detail.component';
 import { ProductUpdateComponent } from './product/product-update/product-update.component';
-import { ProductDeleteComponent } from './product/product-delete/product-delete.component';
+import {CategoryCreateComponent} from './category/category-create/category-create.component';
+import {CategoryListComponent} from './category/category-list/category-list.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,13 +27,15 @@ import { ProductDeleteComponent } from './product/product-delete/product-delete.
     DictionaryPageComponent,
     DictionaryDetailComponent,
     ProductUpdateComponent,
-    ProductDeleteComponent
+    CategoryCreateComponent,
+    CategoryListComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        ReactiveFormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

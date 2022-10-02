@@ -15,6 +15,15 @@ export class ProductListComponent implements OnInit {
     this.getAll();
   }
   getAll() {
-    this.products = this.productService.getAll();
+    this.productService.getAll().subscribe(products => {
+      this.products = products;
+    });
+  }
+
+  deleteProduct(id: number) {
+    this.productService.deleteProduct(id).subscribe(product => {
+      alert('Tiến trình thành công');
+      this.getAll();
+    })
   }
 }

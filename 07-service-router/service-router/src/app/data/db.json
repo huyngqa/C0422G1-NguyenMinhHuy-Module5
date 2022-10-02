@@ -1,0 +1,48 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "bao cao su sagami",
+      "price": "120",
+      "description": "tốt",
+      "category": {
+        "id": 1,
+        "name": "Loại 1"
+      }
+    },
+    {
+      "id": 2,
+      "name": "bao cao su durex",
+      "price": "200",
+      "description": "dễ rách",
+      "category": {
+        "id": 2,
+        "name": "Loại 2"
+      }
+    },
+    {
+      "id": 3,
+      "name": "bao cao su ok",
+      "price": "100",
+      "description": "bình thường",
+      "category": {
+        "id": 2,
+        "name": "Loại 2"
+      }
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Loại 1"
+    },
+    {
+      "id": 2,
+      "name": "Loại 2"
+    },
+    {
+      "id": 3,
+      "name": "Loại 3"
+    }
+  ]
+}

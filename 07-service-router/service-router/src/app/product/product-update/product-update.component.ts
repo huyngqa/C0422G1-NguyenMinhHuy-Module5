@@ -21,8 +21,11 @@ export class ProductUpdateComponent implements OnInit {
               private router: Router, private activeRoute: ActivatedRoute) {
     activeRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
+      console.log(this.id);
       // @ts-ignore
-      this.product = this.productService.getProductById(this.id);
+      this.productService.getProductById(this.id).subscribe(productTemp => {
+        this.product = productTemp;
+      });
       console.log(this.product);
       this.productForm = new FormGroup({
         id: new FormControl(this.product.id),

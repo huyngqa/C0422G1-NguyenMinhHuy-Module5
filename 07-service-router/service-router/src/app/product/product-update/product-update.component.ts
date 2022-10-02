@@ -14,25 +14,20 @@ import {CategoryService} from '../../service/category.service';
 export class ProductUpdateComponent implements OnInit {
   categories: Category[] = [];
   product: Product = {};
-  productForm: FormGroup = new FormGroup({});
+  productForm: FormGroup;
   id: number;
 
   constructor(private productService: ProductService, private categoryService: CategoryService,
               private router: Router, private activeRoute: ActivatedRoute) {
     activeRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
-      console.log(this.id);
-      // @ts-ignore
       this.productService.getProductById(this.id).subscribe(productTemp => {
-        this.product = productTemp;
-      });
-      console.log(this.product);
-      this.productForm = new FormGroup({
-        id: new FormControl(this.product.id),
-        name: new FormControl(this.product.name),
-        price: new FormControl(this.product.price),
-        description: new FormControl(this.product.description),
-        category: new FormControl(),
+        this.productForm = new FormGroup({
+          name: new FormControl(productTemp.name),
+          price: new FormControl(productTemp.price),
+          description: new FormControl(productTemp.description),
+          category: new FormControl(),
+        });
       });
     });
 
@@ -42,20 +37,22 @@ export class ProductUpdateComponent implements OnInit {
     this.getAllCategories();
   }
 
+
   getAllCategories() {
     this.categoryService.getAll().subscribe(categories => {
       this.categories = categories;
     });
   }
 
-  submit() {
+  submit(id: any) {
     let category: Category;
     let product: Product = this.productForm.value;
     this.categoryService.findById(this.productForm.value.category).subscribe(categoryTemp => {
       category = categoryTemp;
       product.category = category;
+      product.id = id;
     });
-    this.productService.updateProduct(product.id, product).subscribe(product => {
+    this.productService.updateProduct(id, product).subscribe(product => {
       this.router.navigateByUrl('');
       alert('cập nhật thành công');
     });

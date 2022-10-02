@@ -45,16 +45,15 @@ export class ProductUpdateComponent implements OnInit {
   }
 
   submit(id: any) {
-    let category: Category;
     let product: Product = this.productForm.value;
     this.categoryService.findById(this.productForm.value.category).subscribe(categoryTemp => {
-      category = categoryTemp;
-      product.category = category;
+      product.category = categoryTemp;
       product.id = id;
-    });
-    this.productService.updateProduct(id, product).subscribe(product => {
-      this.router.navigateByUrl('');
-      alert('cập nhật thành công');
+      this.productService.updateProduct(id, product).subscribe(next => {
+        console.log(product);
+        this.router.navigateByUrl('');
+        alert('cập nhật thành công');
+      });
     });
   }
 }

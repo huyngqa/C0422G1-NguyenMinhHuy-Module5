@@ -40,10 +40,11 @@ export class ProductCreateComponent implements OnInit {
     this.categoryService.findById(this.productForm.value.category).subscribe(categoryTemp => {
       category = categoryTemp;
       product.category = category;
+      this.productService.saveProduct(product).subscribe(product => {
+        this.router.navigateByUrl('');
+        alert('Thêm mới thành công');
+      });
     });
-    this.productService.saveProduct(product).subscribe(product => {
-      this.router.navigateByUrl('');
-      alert('Thêm mới thành công');
-    });
+
   }
 }

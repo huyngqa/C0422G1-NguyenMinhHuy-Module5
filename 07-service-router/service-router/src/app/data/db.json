@@ -25,7 +25,20 @@
       "name": "bao cao su ok",
       "price": 200,
       "description": "bình thường",
-      "category": null
+      "category": {
+        "id": 3,
+        "name": "Loại 3"
+      }
+    },
+    {
+      "name": "34",
+      "price": 24,
+      "description": "12",
+      "category": {
+        "id": 2,
+        "name": "Loại 2"
+      },
+      "id": 4
     }
   ],
   "categories": [

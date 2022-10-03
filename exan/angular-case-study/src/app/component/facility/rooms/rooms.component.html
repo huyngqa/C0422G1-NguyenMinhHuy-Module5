@@ -6,7 +6,7 @@
         <div class="breadcrumb__text">
           <h1>Our Room</h1>
           <div class="breadcrumb__links">
-            <a href="../index.html">Home</a>
+            <a routerLink="/rooms">Home</a>
             <span>Rooms</span>
           </div>
         </div>
@@ -22,7 +22,7 @@
 <!-- Rooms Section Begin -->
 <section class="rooms spad">
   <div class="container">
-    <div class="row" *ngFor="let facility of facilities">
+    <div class="row" *ngFor="let f of facilities">
         <div class="col-lg-6 p-0 order-lg-2 order-md-2 col-md-6 room_carousel">
           <div class="room__pic__slider owl-carousel owl-theme">
             <div class="room__pic__item set-bg"
@@ -37,16 +37,16 @@
         </div>
         <div class="col-lg-6 p-0 order-lg-1 order-md-1 col-md-6">
           <div class="room__text">
-            <h3>{{facility.facilityName}}</h3>
-            <h2><sup>$</sup>{{facility.costs}}<span>/day</span></h2>
+            <h3>{{f.name}}</h3>
+            <h2><sup>$</sup>{{f.cost}}<span>/day</span></h2>
             <ul>
-              <li><span>Area:</span>{{facility.area}}</li>
-              <li><span>Capacity:</span>{{facility.maxOfPeople}}</li>
-              <li><span>Bed:</span>King Beds</li>
-              <li><span>Num of floor:</span>{{facility.numOfFloor}}</li>
+              <li><span>Area:</span>{{f.area}}</li>
+              <li><span>Max people:</span>{{f.maxPeople}}</li>
+              <li><span>Type:</span>{{f.facilityType.name}}</li>
+              <li><span>Rent Type:</span>{{f.rentType.name}}</li>
               <li><span>Services:</span>Wifi, Television, Bathroom,...</li>
             </ul>
-            <a href="#">View Details</a>
+            <a (click)="getDetails(f.id)" class="btn" data-bs-toggle="modal" data-bs-target="#detailFacilityModal">View Details</a>
           </div>
         </div>
     </div>
@@ -62,3 +62,29 @@
   </div>
 </section>
 <!-- Rooms Section End -->
+
+<!-- Modal -->
+<div class="modal fade" id="detailFacilityModal" tabindex="-1" aria-labelledby="detailFacilityModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="detailFacilityModalLabel">View Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="facility !== null">
+          <ul>
+            <li><span>Area:</span>{{facility.area}}</li>
+            <li><span>Capacity:</span>{{facility.maxPeople}}</li>
+            <li><span>Bed:</span>King Beds</li>
+            <li><span>Type:</span>{{facility.facilityType.name}}</li>
+            <li><span>Services:</span>Wifi, Television, Bathroom,...</li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

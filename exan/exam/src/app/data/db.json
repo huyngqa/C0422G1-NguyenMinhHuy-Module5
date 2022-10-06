@@ -1,0 +1,15 @@
+{
+  "cars": [
+    {
+      "id": 1234,
+      "type": "giường nằm",
+      "goStart": "Huế",
+      "goEnd": "Quảng Trị",
+      "dateStart": "13:20",
+      "dateEnd": "15:00",
+      "nameHomeCar": "ST",
+      "phone": "0925845632",
+      "email": "sontung@gmail.com"
+    }
+  ]
+}

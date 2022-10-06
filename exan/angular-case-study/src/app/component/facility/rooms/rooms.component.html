@@ -23,32 +23,40 @@
 <section class="rooms spad">
   <div class="container">
     <div class="row" *ngFor="let f of facilities">
-        <div class="col-lg-6 p-0 order-lg-2 order-md-2 col-md-6 room_carousel">
-          <div class="room__pic__slider owl-carousel owl-theme">
-            <div class="room__pic__item set-bg"
-                 [style.background-image]="'url(../../assets/img/rooms/room-1.jpg)'"></div>
-            <div class="room__pic__item set-bg"
-                 [style.background-image]="'url(../../assets/img/rooms/room-2.jpg)'"></div>
-            <div class="room__pic__item set-bg"
-                 [style.background-image]="'url(../../assets/img/rooms/room-3.jpg)'"></div>
-            <div class="room__pic__item set-bg"
-                 [style.background-image]="'url(../../assets/img/rooms/room-4.jpg)'"></div>
-          </div>
+      <div class="col-lg-6 p-0 order-lg-2 order-md-2 col-md-6 room_carousel">
+        <div class="room__pic__slider owl-carousel owl-theme" id="aaa">
+          <div class="room__pic__item set-bg"
+               [style.background-image]="'url(../../assets/img/rooms/room-1.jpg)'"></div>
+          <div class="room__pic__item set-bg"
+               [style.background-image]="'url(../../assets/img/rooms/room-2.jpg)'"></div>
+          <div class="room__pic__item set-bg"
+               [style.background-image]="'url(../../assets/img/rooms/room-3.jpg)'"></div>
+          <div class="room__pic__item set-bg"
+               [style.background-image]="'url(../../assets/img/rooms/room-4.jpg)'"></div>
         </div>
-        <div class="col-lg-6 p-0 order-lg-1 order-md-1 col-md-6">
-          <div class="room__text">
-            <h3>{{f.name}}</h3>
-            <h2><sup>$</sup>{{f.cost}}<span>/day</span></h2>
-            <ul>
-              <li><span>Area:</span>{{f.area}}</li>
-              <li><span>Max people:</span>{{f.maxPeople}}</li>
-              <li><span>Type:</span>{{f.facilityType.name}}</li>
-              <li><span>Rent Type:</span>{{f.rentType.name}}</li>
-              <li><span>Services:</span>Wifi, Television, Bathroom,...</li>
-            </ul>
-            <a (click)="getDetails(f.id)" class="btn" data-bs-toggle="modal" data-bs-target="#detailFacilityModal">View Details</a>
-          </div>
+      </div>
+      <div class="col-lg-6 p-0 order-lg-1 order-md-1 col-md-6">
+        <div class="room__text">
+          <h3>{{f.name}}</h3>
+          <h2><sup>$</sup>{{f.cost}}<span>/day</span></h2>
+          <ul>
+            <li><span>Area:</span>{{f.area}}</li>
+            <li><span>Max people:</span>{{f.maxPeople}}</li>
+            <li><span>Type:</span>{{f.facilityType.name}}</li>
+            <li><span>Rent Type:</span>{{f.rentType.name}}</li>
+            <li><span>Services:</span>Wifi, Television, Bathroom,...</li>
+          </ul>
+          <a (click)="getDetails(f.id)" class="btn me-3" data-bs-toggle="modal"
+             data-bs-target="#detailFacilityModal">View Details</a>
+          <a class="btn me-3">
+            Edit
+          </a>
+          <a (click)="showInfoDeleteModal(f.id, f.name)" class="btn me-3" data-bs-target="#deleteFacilityModal"
+             data-bs-toggle="modal">
+            Delete
+          </a>
         </div>
+      </div>
     </div>
     <div class="row">
       <div class="col-lg-12">
@@ -63,8 +71,9 @@
 </section>
 <!-- Rooms Section End -->
 
-<!-- Modal -->
-<div class="modal fade" id="detailFacilityModal" tabindex="-1" aria-labelledby="detailFacilityModalLabel" aria-hidden="true">
+<!-- Modal Details Begin -->
+<div class="modal fade" id="detailFacilityModal" tabindex="-1" aria-labelledby="detailFacilityModalLabel"
+     aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -88,3 +97,4 @@
     </div>
   </div>
 </div>
+<!-- Modal Details End -->

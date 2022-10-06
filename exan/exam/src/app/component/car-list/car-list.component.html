@@ -1,0 +1,29 @@
+<h3>Danh sách các xe đăng ký ở bến XYZ</h3>
+
+<button type="button">Thêm mới</button>
+<table class="table table-striped table-bordered w-100">
+  <thead>
+  <tr>
+    <th scope="col">Số xe</th>
+    <th scope="col">Tên nhà xe</th>
+    <th scope="col">Điểm đi</th>
+    <th scope="col">Điểm đến</th>
+    <th scope="col">Giờ đi</th>
+    <th scope="col">Giờ đến</th>
+    <th scope="col" colspan="3">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let car of cars;">
+    <td>{{car.id}}</td>
+    <td>{{car.nameHomeCar}}</td>
+    <td>{{car.goStart}}</td>
+    <td>{{car.goEnd}}</td>
+    <td>{{car.dateStart}}</td>
+    <td>{{car.dateEnd}}</td>
+    <td><a class="btn btn-warning" [routerLink]="['/car/edit', car.id]">Sửa</a></td>
+    <td><a class="btn btn-info" (click)="showCarDetail(car.id)">Chi tiết</a></td>
+    <td><a class="btn btn-danger" (click)="deleteCar(car.id)">Xoá</a></td>
+  </tr>
+  </tbody>
+</table>

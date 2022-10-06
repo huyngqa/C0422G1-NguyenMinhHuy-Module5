@@ -11,7 +11,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 export class CarUpdateComponent implements OnInit {
   formCar: FormGroup;
   id:number;
-  message: string = '';
+  error: any = [];
   constructor(private carService: CarService,
               private activatedRoute: ActivatedRoute, private router: Router) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
@@ -19,7 +19,7 @@ export class CarUpdateComponent implements OnInit {
       this.carService.getCarById(this.id).subscribe(carTemp => {
         this.formCar = new FormGroup({
           id: new FormControl(carTemp.id),
-          type: new FormControl(carTemp.type, [Validators.required]),
+          type: new FormControl(carTemp.type, ),
           nameHomeCar: new FormControl(carTemp.nameHomeCar, [Validators.required]),
           goStart: new FormControl(carTemp.goStart),
           goEnd: new FormControl(carTemp.goEnd),
@@ -40,7 +40,9 @@ export class CarUpdateComponent implements OnInit {
     if(this.formCar.valid) {
       this.carService.updateCar(car.id, car).subscribe(next => {
         this.router.navigateByUrl('');
-      });
+      }, error => {
+        this.error = error.error;
+      })
     }
   }
 }

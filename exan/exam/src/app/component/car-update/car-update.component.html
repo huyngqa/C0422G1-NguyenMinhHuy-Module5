@@ -10,18 +10,18 @@
     <div class="form-floating mb-3">
       <input type="text" formControlName="type" class="form-control" id="typeCar" placeholder="name">
       <label for="typeCar">Loại xe</label>
-      <p class="text-danger" *ngIf="formCar.controls.type.hasError('required') && formCar.controls.type.touched">
-        Vui lòng nhập loại xe
-      </p>
+<!--      <p class="text-danger" *ngIf="formCar.controls.type.hasError('required') && formCar.controls.type.touched">-->
+<!--        Vui lòng nhập loại xe-->
+<!--      </p>-->
+      <p class="text-danger">{{error.type}}</p>
     </div>
     <div class="form-floating mb-3">
       <input type="text" formControlName="nameHomeCar" class="form-control" id="nameHomeCar" placeholder="name">
       <label for="nameHomeCar">Tên nhà xe</label>
-      <p class="text-danger" *ngIf="formCar.controls.nameHomeCar.hasError('required') && formCar.controls.nameHomeCar.touched">
-        Vui lòng nhập tên nhà xe
-      </p>
+<!--      <p class="text-danger" *ngIf="formCar.controls.nameHomeCar.hasError('required') && formCar.controls.nameHomeCar.touched">-->
+<!--        Vui lòng nhập tên nhà xe-->
+<!--      </p>-->
     </div>
-    <br>
     <label for="goStart">Điếm đi</label>
     <select formControlName="goStart" id="goStart" class="form-control mb-3">
       <option ngValue="Đà nẵng">Đà Nẵng</option>

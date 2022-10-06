@@ -25,6 +25,6 @@ export class CarService {
   }
 
   updateCar(id: number, car: Car) {
-    return this.httpClient.put(CAR_URL + id, car);
+    return this.httpClient.put(CAR_URL + '?id=' + id, car);
   }
 }

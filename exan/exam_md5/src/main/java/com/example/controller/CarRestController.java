@@ -1,15 +1,23 @@
 package com.example.controller;
 
+import com.example.dto.CarDTO;
 import com.example.model.Car;
 import com.example.projection.ICarProjection;
 import com.example.service.ICarService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.HashMap;
+import java.util.Map;
 
 @CrossOrigin
 @RestController
@@ -42,8 +50,18 @@ public class CarRestController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PutMapping("{id}")
-    public ResponseEntity<Void> updateCar(@PathVariable Integer id, @RequestBody Car car) {
+    @PutMapping("")
+    public ResponseEntity<Map<String, String>> updateCar(@Valid @RequestBody CarDTO carDTO,
+                                                         BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            Map<String, String> errors = new HashMap<>();
+            for (FieldError fieldError : bindingResult.getFieldErrors()) {
+                errors.put(fieldError.getField(), fieldError.getDefaultMessage());
+            }
+            return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
+        }
+        Car car = new Car();
+        BeanUtils.copyProperties(carDTO, car);
         iCarService.saveCar(car);
         return new ResponseEntity<>(HttpStatus.OK);
     }

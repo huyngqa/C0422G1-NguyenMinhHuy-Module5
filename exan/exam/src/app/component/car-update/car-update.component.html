@@ -10,9 +10,9 @@
     <div class="form-floating mb-3">
       <input type="text" formControlName="type" class="form-control" id="typeCar" placeholder="name">
       <label for="typeCar">Loại xe</label>
-<!--      <p class="text-danger" *ngIf="formCar.controls.type.hasError('required') && formCar.controls.type.touched">-->
-<!--        Vui lòng nhập loại xe-->
-<!--      </p>-->
+      <p class="text-danger" *ngIf="formCar.controls.type.hasError('required') && formCar.controls.type.touched">
+        Vui lòng nhập loại xe
+      </p>
       <p class="text-danger">{{error.type}}</p>
     </div>
     <div class="form-floating mb-3">
@@ -21,6 +21,7 @@
 <!--      <p class="text-danger" *ngIf="formCar.controls.nameHomeCar.hasError('required') && formCar.controls.nameHomeCar.touched">-->
 <!--        Vui lòng nhập tên nhà xe-->
 <!--      </p>-->
+      <p class="text-danger">{{error.nameHomeCar}}</p>
     </div>
     <label for="goStart">Điếm đi</label>
     <select formControlName="goStart" id="goStart" class="form-control mb-3">
@@ -30,6 +31,7 @@
       <option ngValue="Quãng Bình">Quảng Bình</option>
       <option ngValue="Quãng Nam">Quảng Nam</option>
     </select>
+    <p class="text-danger">{{error.goStart}}</p>
     <label for="goEnd">Điếm đến</label>
     <select formControlName="goEnd" id="goEnd" class="form-control mb-3">
       <option ngValue="Đà nẵng">Đà Nẵng</option>
@@ -38,7 +40,7 @@
       <option ngValue="Quảng Bình">Quảng Bình</option>
       <option ngValue="Quãng Nam">Quảng Nam</option>
     </select>
-
+    <p class="text-danger">{{error.goEnd}}</p>
     <div class="form-floating mb-3">
       <input formControlName="phone" type="text" class="form-control" id="phone" placeholder="name">
       <label for="phone">Số điện thoại</label>
@@ -46,8 +48,9 @@
         Vui lòng nhập số điện thoại nhà xe
       </p>
       <p class="text-danger" *ngIf="formCar.controls.phone.hasError('pattern') && formCar.controls.phone.touched">
-        Vui lòng nhập email đúng định dạng
+        Vui lòng nhập số điện thoại đúng định dạng
       </p>
+      <p class="text-danger">{{error.phone}}</p>
     </div>
     <div class="form-floating mb-3">
       <input formControlName="email" type="email" class="form-control" id="email" placeholder="name">
@@ -58,14 +61,17 @@
       <p class="text-danger" *ngIf="formCar.controls.email.hasError('pattern') && formCar.controls.email.touched">
         Vui lòng nhập email đúng định dạng
       </p>
+      <p class="text-danger">{{error.email}}</p>
     </div>
     <div class="form-floating mb-3">
       <input formControlName="dateStart" type="time" class="form-control" id="dateStart" placeholder="name">
       <label for="dateStart">Giờ đi</label>
+      <p class="text-danger">{{error.dateStart}}</p>
     </div>
     <div class="form-floating mb-3">
       <input formControlName="dateEnd" type="time" class="form-control" id="dateEnd" placeholder="name">
       <label for="dateEnd">Giờ đến</label>
+      <p class="text-danger">{{error.dateEnd}}</p>
     </div>
     <div>
       <button class="btn text-white w-100"

@@ -19,7 +19,7 @@ export class CarUpdateComponent implements OnInit {
       this.carService.getCarById(this.id).subscribe(carTemp => {
         this.formCar = new FormGroup({
           id: new FormControl(carTemp.id),
-          type: new FormControl(carTemp.type, ),
+          type: new FormControl(carTemp.type, [Validators.required]),
           nameHomeCar: new FormControl(carTemp.nameHomeCar, [Validators.required]),
           goStart: new FormControl(carTemp.goStart),
           goEnd: new FormControl(carTemp.goEnd),
